@@ -12,11 +12,13 @@ public class SpringBootController {
 
     @RequestMapping(value = {"/hello-w"}, method = RequestMethod.GET)
     public String sayHelloDifferently() {
+
         return "Hello Everyone";
     }
 
     @GetMapping("/hello/query")
     public String sayPosting(@RequestParam String firstName, @RequestParam String lastName) {
+
         return "Hello " + firstName + " " + lastName;
     }
 
@@ -27,6 +29,12 @@ public class SpringBootController {
 
     @PostMapping("/hello/post")
     public String sayPost(@RequestBody User user) {
+
         return "Hello " + user.getFirstName() + " " + user.getLastName();
+    }
+
+    @PutMapping("/hello/{firstName}")
+    public String sayHello(@PathVariable String firstName, @RequestParam(value = "lastName") String lastName) {
+        return "Hello " + firstName + " " + lastName;
     }
 }
