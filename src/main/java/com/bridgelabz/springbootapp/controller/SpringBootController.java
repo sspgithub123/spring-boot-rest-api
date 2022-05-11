@@ -20,4 +20,9 @@ public class SpringBootController {
 
         return "Hello " + firstName + " " + lastName;
     }
+
+    @GetMapping("/hello/{firstName}")
+    public String sayHello(@PathVariable String firstName) {
+        return "Hello " + firstName;
+    }
 }
